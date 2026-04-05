@@ -1,0 +1,40 @@
+{
+  "name": "petrol-pump-lubricants-inventory",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev:backend": "cd backend && php artisan serve --host=127.0.0.1 --port=8000",
+    "dev:electron": "node scripts/dev-electron.js",
+    "dev:next": "cd renderer && npm run dev",
+    "dev": "node scripts/dev.js",
+    "build:next": "cd renderer && npm run build",
+    "build": "npm run build:next && electron-builder"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.5"
+  },
+  "build": {
+    "appId": "com.petrolpump.lubricants",
+    "productName": "Lubricants Inventory System",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "renderer/out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend"
+      }
+    ],
+    "win": {
+      "target": ["nsis"]
+    }
+  }
+}
