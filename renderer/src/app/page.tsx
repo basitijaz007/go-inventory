@@ -91,13 +91,12 @@ export default function DashboardPage() {
                   <TableHead>Packing</TableHead>
                   <TableHead className="text-right">Packs/Carton</TableHead>
                 <TableHead className="text-right">Available</TableHead>
-                <TableHead className="text-right">Threshold</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
                 {filteredLowStockProducts.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center text-muted-foreground py-8">
+                    <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
                       {searchTerm ? "No matching low stock products." : "No low stock products."}
                     </TableCell>
                   </TableRow>
@@ -111,7 +110,6 @@ export default function DashboardPage() {
                     <TableCell className="text-right text-destructive font-semibold">
                       {formatCartonsAndPacks(product.current_total_packs, product.packs_per_carton)} ({product.current_total_packs} packs)
                     </TableCell>
-                    <TableCell className="text-right">{product.low_stock_threshold} packs</TableCell>
                   </TableRow>
                 ))
               )}

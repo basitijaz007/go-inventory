@@ -24,16 +24,24 @@
     },
     "files": [
       "electron/**/*",
-      "renderer/out/**/*",
       "package.json"
     ],
     "extraResources": [
       {
+        "from": "renderer/out",
+        "to": "renderer/out"
+      },
+      {
         "from": "backend",
         "to": "backend"
+      },
+      {
+        "from": "runtime/php",
+        "to": "php"
       }
     ],
     "win": {
+      "signAndEditExecutable": false,
       "target": ["nsis"]
     }
   }
